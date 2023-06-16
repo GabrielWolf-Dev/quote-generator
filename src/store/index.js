@@ -10,14 +10,14 @@ export default createStore({
     SET_QUOTES(state, payload) {
       state.quotes = payload;
     },
-    HANDLE_LAODING(state, payload) {
+    HANDLE_LOADING(state, payload) {
       state.isLoading = payload;
     },
   },
   actions: {
     async setQuotes(context, payload = "") {
       try {
-        context.commit("HANDLE_LAODING", true);
+        context.commit("HANDLE_LOADING", true);
         const response = await fetch(`${context.state.urlApi}${payload}`);
         const data = await response.json();
 
@@ -25,7 +25,7 @@ export default createStore({
       } catch (error) {
         console.error(error.message);
       } finally {
-        context.commit("HANDLE_LAODING", false);
+        context.commit("HANDLE_LOADING", false);
       }
     },
   },
