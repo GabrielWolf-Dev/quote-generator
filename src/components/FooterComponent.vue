@@ -1,8 +1,9 @@
 <template>
-  <footer>
+  <footer class="footer">
     <p>
       created by
       <a
+        class="link-dev"
         href="https://github.com/GabrielWolf-Dev"
         target="_blank"
         rel="noopener noreferrer"
@@ -19,4 +20,18 @@ export default {
 };
 </script>
 
-<style></style>
+<style scoped>
+.footer {
+  position: relative;
+  top: 80px;
+  text-align: center;
+  color: var(--color-gray-03);
+  font-size: var(--font-14);
+  padding: 60px 2% 24px 2%;
+}
+
+.link-dev {
+  font-weight: var(--fontw-bold);
+  color: var(--color-gray-03);
+}
+</style>
