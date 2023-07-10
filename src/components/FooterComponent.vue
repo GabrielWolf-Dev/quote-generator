@@ -34,4 +34,11 @@ export default {
   font-weight: var(--fontw-bold);
   color: var(--color-gray-03);
 }
+
+@media (max-width: 768px) {
+  .footer {
+    top: 40px;
+    padding: 40px 2% 24px 2%;
+  }
+}
 </style>

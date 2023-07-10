@@ -60,7 +60,7 @@ export default {
 
 header {
   margin-left: auto;
-  padding: 60px 2%;
+  padding: 24px 2% 60px 2%;
 }
 
 main {
@@ -125,5 +125,85 @@ main {
 
 :is(.quote-desc:hover) .quote-icon {
   display: block;
+}
+
+@media (max-width: 768px) {
+  header {
+    margin: 0 auto;
+  }
+
+  main {
+    max-width: 400px;
+    padding: 40px 2%;
+  }
+
+  .quote-phrase {
+    font-size: var(--font-24);
+    color: var(--color-black);
+    padding-left: 100px;
+    border-left: 8px solid var(--color-yellow);
+    margin-bottom: 80px;
+  }
+
+  .quote-desc {
+    width: 100%;
+    padding: 40px 30px;
+  }
+
+  .quote-author {
+    font-size: var(--font-18);
+  }
+
+  .quote-genre {
+    font-size: var(--font-14);
+  }
+
+  .quote-icon {
+    width: 38px;
+    height: 38px;
+    position: absolute;
+    right: 30px;
+    top: 50%;
+    transform: translateY(-50%);
+    display: none;
+  }
+}
+
+@media (max-width: 478px) {
+  .quote-phrase {
+    padding-left: 0;
+    border-left: 0;
+    text-align: center;
+  }
+
+  .quote-desc {
+    width: 100%;
+    max-width: 400px;
+    padding: 40px 20px;
+    text-align: center;
+  }
+
+  .quote-author {
+    font-weight: var(--fontw-bold);
+    color: var(--color-gray-02);
+  }
+
+  .quote-genre {
+    font-weight: var(--fontw-default);
+    color: var(--color-gray-03);
+    display: inline-block;
+    margin: 4px 0;
+  }
+
+  .quote-icon {
+    width: 24px;
+    height: 24px;
+    position: initial;
+    right: 0;
+    top: 0;
+    transform: initial;
+    display: block;
+    margin: 0 auto;
+  }
 }
 </style>
