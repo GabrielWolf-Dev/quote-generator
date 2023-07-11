@@ -1,12 +1,8 @@
 <template>
-  <div class="home">
-    <header>
-      <RandomBtn />
-    </header>
-    <main v-if="quotes !== null && !isLoading">
-      <div>
-        <PhraseComponent :phrase="phrase" />
-
+  <div class="container">
+    <HeaderComponent />
+    <WrapperComponent>
+      <template v-slot:default="{ authorURL }">
         <router-link :to="authorURL">
           <aside class="quote-desc">
             <h2 class="quote-author">{{ quotes.data[0].quoteAuthor }}</h2>
@@ -19,9 +15,8 @@
             />
           </aside>
         </router-link>
-      </div>
-    </main>
-    <LoadingQuotes v-else />
+      </template>
+    </WrapperComponent>
     <FooterComponent />
   </div>
 </template>
@@ -29,25 +24,19 @@
 <script>
 import { mapState } from "vuex";
 
-import RandomBtn from "@/components/RandomBtn.vue";
-import PhraseComponent from "@/components/PhraseComponent.vue";
+import HeaderComponent from "@/components/HeaderComponent.vue";
+import WrapperComponent from "@/components/WrapperComponent.vue";
 import FooterComponent from "@/components/FooterComponent.vue";
 
 export default {
   name: "HomeView",
   components: {
-    RandomBtn,
-    PhraseComponent,
+    HeaderComponent,
+    WrapperComponent,
     FooterComponent,
   },
   computed: {
     ...mapState(["quotes", "isLoading"]),
-    phrase() {
-      return `“${this.quotes.data[0].quoteText}”`;
-    },
-    authorURL() {
-      return this.quotes.data[0].quoteAuthor.replace(" ", "%20");
-    },
   },
   created() {
     this.$store.dispatch("setQuotes", "/random");
@@ -56,30 +45,6 @@ export default {
 </script>
 
 <style scoped>
-.home {
-  display: flex;
-  min-height: 100vh;
-  flex-direction: column;
-  position: relative;
-}
-
-header {
-  margin-left: auto;
-  padding: 24px 2% 60px 2%;
-}
-
-main {
-  width: 100%;
-  max-width: 800px;
-  flex: 1;
-  display: grid;
-  grid-template-columns: 1fr;
-  justify-content: center;
-  align-items: center;
-  padding: 60px 2%;
-  margin: 0 auto;
-}
-
 a {
   text-decoration: none;
 }
@@ -128,15 +93,6 @@ a {
 }
 
 @media (max-width: 768px) {
-  header {
-    margin: 0 auto;
-  }
-
-  main {
-    max-width: 400px;
-    padding: 40px 2%;
-  }
-
   .quote-desc {
     width: 100%;
     padding: 40px 30px;

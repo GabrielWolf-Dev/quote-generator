@@ -27,4 +27,30 @@
 :root {
   font-size: 16px;
 }
+
+.container {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+  position: relative;
+}
+
+.container-phrase {
+  width: 100%;
+  max-width: 800px;
+  flex: 1;
+  display: grid;
+  grid-template-columns: 1fr;
+  justify-content: center;
+  align-items: center;
+  padding: 60px 2%;
+  margin: 0 auto;
+}
+
+@media (max-width: 768px) {
+  .container-phrase {
+    max-width: 400px;
+    padding: 40px 2%;
+  }
+}
 </style>
