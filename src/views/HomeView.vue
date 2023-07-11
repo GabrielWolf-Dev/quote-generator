@@ -5,7 +5,7 @@
     </header>
     <main v-if="quotes !== null && !isLoading">
       <div>
-        <p class="quote-phrase">{{ phrase }}</p>
+        <PhraseComponent :phrase="phrase" />
 
         <router-link :to="authorURL">
           <aside class="quote-desc">
@@ -30,14 +30,14 @@
 import { mapState } from "vuex";
 
 import RandomBtn from "@/components/RandomBtn.vue";
-import LoadingQuotes from "@/components/LoadingQuotes.vue";
+import PhraseComponent from "@/components/PhraseComponent.vue";
 import FooterComponent from "@/components/FooterComponent.vue";
 
 export default {
   name: "HomeView",
   components: {
     RandomBtn,
-    LoadingQuotes,
+    PhraseComponent,
     FooterComponent,
   },
   computed: {
@@ -78,15 +78,6 @@ main {
   align-items: center;
   padding: 60px 2%;
   margin: 0 auto;
-}
-
-.quote-phrase {
-  font-weight: var(--fontw-default);
-  font-size: var(--font-36);
-  color: var(--color-black);
-  padding-left: 100px;
-  border-left: 8px solid var(--color-yellow);
-  margin-bottom: 160px;
 }
 
 a {
@@ -146,14 +137,6 @@ a {
     padding: 40px 2%;
   }
 
-  .quote-phrase {
-    font-size: var(--font-24);
-    color: var(--color-black);
-    padding-left: 100px;
-    border-left: 8px solid var(--color-yellow);
-    margin-bottom: 80px;
-  }
-
   .quote-desc {
     width: 100%;
     padding: 40px 30px;
@@ -178,13 +161,7 @@ a {
   }
 }
 
-@media (max-width: 478px) {
-  .quote-phrase {
-    padding-left: 0;
-    border-left: 0;
-    text-align: center;
-  }
-
+@media (max-width: 480px) {
   .quote-desc {
     width: 100%;
     max-width: 400px;

@@ -14,8 +14,6 @@
 <script>
 import { mapState } from "vuex";
 
-import LoadingQuotes from "@/components/LoadingQuotes.vue";
-
 export default {
   name: "AuthorQuotesView",
   data() {
@@ -25,9 +23,6 @@ export default {
   },
   computed: {
     ...mapState(["quotes", "isLoading"]),
-  },
-  components: {
-    LoadingQuotes,
   },
   created() {
     this.$store.dispatch("setQuotes", `?author=${this.$route.params.author}`);
