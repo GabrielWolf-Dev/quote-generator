@@ -7,16 +7,18 @@
       <div>
         <p class="quote-phrase">{{ phrase }}</p>
 
-        <aside class="quote-desc">
-          <h2 class="quote-author">{{ quotes.data[0].quoteAuthor }}</h2>
-          <span class="quote-genre">{{ quotes.data[0].quoteGenre }}</span>
+        <router-link :to="authorURL">
+          <aside class="quote-desc">
+            <h2 class="quote-author">{{ quotes.data[0].quoteAuthor }}</h2>
+            <span class="quote-genre">{{ quotes.data[0].quoteGenre }}</span>
 
-          <img
-            class="quote-icon"
-            src="/assets/svg/arrow-right.svg"
-            alt="Arrow right icon"
-          />
-        </aside>
+            <img
+              class="quote-icon"
+              src="/assets/svg/arrow-right.svg"
+              alt="Arrow right icon"
+            />
+          </aside>
+        </router-link>
       </div>
     </main>
     <LoadingQuotes v-else />
@@ -42,6 +44,9 @@ export default {
     ...mapState(["quotes", "isLoading"]),
     phrase() {
       return `“${this.quotes.data[0].quoteText}”`;
+    },
+    authorURL() {
+      return this.quotes.data[0].quoteAuthor.replace(" ", "%20");
     },
   },
   created() {
@@ -82,6 +87,10 @@ main {
   padding-left: 100px;
   border-left: 8px solid var(--color-yellow);
   margin-bottom: 160px;
+}
+
+a {
+  text-decoration: none;
 }
 
 .quote-desc {
