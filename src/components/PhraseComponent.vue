@@ -1,11 +1,13 @@
 <template>
-  <p class="phrase">{{ phrase }}</p>
+  <p class="phrase" v-for="phrase in phrases" :key="phrase._id">
+    “{{ phrase.quoteText }}”
+  </p>
 </template>
 
 <script>
 export default {
   name: "PhraseComponent",
-  props: ["phrase"],
+  props: ["phrases"],
 };
 </script>
 
@@ -17,6 +19,10 @@ export default {
   padding-left: 100px;
   border-left: 8px solid var(--color-yellow);
   margin-bottom: 160px;
+}
+
+.phrase:last-child {
+  margin-bottom: 0;
 }
 
 @media (max-width: 768px) {

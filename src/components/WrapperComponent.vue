@@ -1,7 +1,9 @@
 <template>
   <main class="container-phrase" v-if="quotes !== null && !isLoading">
     <div>
-      <PhraseComponent :phrase="phrase" />
+      <slot name="title"></slot>
+
+      <PhraseComponent :phrases="this.quotes.data" />
 
       <slot :authorURL="authorURL"></slot>
     </div>
@@ -22,9 +24,6 @@ export default {
   },
   computed: {
     ...mapState(["quotes", "isLoading"]),
-    phrase() {
-      return `“${this.quotes.data[0].quoteText}”`;
-    },
     authorURL() {
       return this.quotes.data[0].quoteAuthor.replace(" ", "%20");
     },
