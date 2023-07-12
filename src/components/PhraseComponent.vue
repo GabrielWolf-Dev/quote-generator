@@ -37,7 +37,8 @@ export default {
 
 @media (max-width: 480px) {
   .phrase {
-    padding-left: 0;
+    font-size: var(--font-18);
+    padding: 0 2%;
     border-left: 0;
     text-align: center;
   }
