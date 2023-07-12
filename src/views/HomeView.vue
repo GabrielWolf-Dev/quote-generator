@@ -39,6 +39,8 @@ export default {
     ...mapState(["quotes", "isLoading"]),
   },
   created() {
+    document.title = "Quote Generator | Home";
+
     this.$store.dispatch("setQuotes", "/random");
   },
 };

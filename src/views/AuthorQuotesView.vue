@@ -25,6 +25,8 @@ export default {
     ...mapState(["quotes", "isLoading"]),
   },
   created() {
+    document.title = `Quote Generator | ${this.author.split(" ")[0]} quotes`;
+
     this.$store.dispatch("setQuotes", `?author=${this.$route.params.author}`);
   },
 };
