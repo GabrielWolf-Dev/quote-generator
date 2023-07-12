@@ -1,6 +1,7 @@
 import { createRouter, createWebHistory } from "vue-router";
 import HomeView from "../views/HomeView.vue";
 import AuthorQuotesView from "../views/AuthorQuotesView.vue";
+import SearchView from "../views/SearchView.vue";
 
 const routes = [
   {
@@ -12,6 +13,11 @@ const routes = [
     path: "/:author",
     name: "author",
     component: AuthorQuotesView,
+  },
+  {
+    path: "/search",
+    name: "search",
+    component: SearchView,
   },
 ];
 

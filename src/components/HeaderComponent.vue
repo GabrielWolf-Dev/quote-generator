@@ -1,15 +1,24 @@
 <template>
-  <header>
-    <div class="btn-back">
-      <BackRouter />
-    </div>
-    <RandomBtn />
+  <header class="header">
+    <BackRouter />
+
+    <router-link to="/" class="home-link">
+      <img src="/assets/svg/home.svg" alt="Home icon"
+    /></router-link>
+
+    <nav class="nav">
+      <router-link to="/search">
+        <img class="search-icon" src="/assets/svg/search.svg" alt="Search icon"
+      /></router-link>
+
+      <RandomBtn />
+    </nav>
   </header>
 </template>
 
 <script>
-import RandomBtn from "@/components/RandomBtn.vue";
 import BackRouter from "@/components/BackRouter.vue";
+import RandomBtn from "@/components/RandomBtn.vue";
 
 export default {
   name: "HeaderComponent",
@@ -21,21 +30,45 @@ export default {
 </script>
 
 <style scoped>
-header {
+.header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 24px 2% 60px 2%;
+  padding: 24px 2% 24px 2%;
+  position: relative;
+}
+
+.nav {
+  display: flex;
+  gap: 24px;
+  align-items: center;
+}
+
+.search-icon {
+  position: relative;
+  top: 3px;
+}
+
+.home-link {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
 @media (max-width: 768px) {
-  header {
-    flex-direction: column;
-    justify-content: center;
-  }
-
-  .btn-back {
-    display: none;
+  .header {
+    width: 100%;
+    background-color: var(--color-white);
+    margin: initial;
+    gap: 24px;
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.2);
+    padding: 14px 2% 14px 2%;
+    z-index: 1;
+    position: fixed;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
   }
 }
 </style>

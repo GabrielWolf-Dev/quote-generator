@@ -23,7 +23,7 @@ export default {
 <style scoped>
 .footer {
   position: relative;
-  top: 80px;
+  top: 40px;
   text-align: center;
   color: var(--color-gray-03);
   font-size: var(--font-14);
@@ -37,8 +37,10 @@ export default {
 
 @media (max-width: 768px) {
   .footer {
-    top: 40px;
+    position: relative;
+    top: 0;
     padding: 40px 2% 24px 2%;
+    margin-bottom: 80px;
   }
 }
 </style>

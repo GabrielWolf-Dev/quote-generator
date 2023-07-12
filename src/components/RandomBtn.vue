@@ -1,6 +1,7 @@
 <template>
-  <router-link @click="updateRandomQuote" to="/" class="button"
-    >random <img src="/assets/svg/random-icon.svg" alt="Random icon"
+  <router-link @click="updateRandomQuote" to="/" class="button">
+    <span class="text">random</span>
+    <img src="/assets/svg/random-icon.svg" alt="Random icon"
   /></router-link>
 </template>
 
@@ -25,5 +26,15 @@ export default {
   font-size: var(--font-18);
   font-weight: var(--fontw-default);
   text-decoration: none;
+}
+
+@media (max-width: 768px) {
+  .button {
+    gap: 0;
+  }
+
+  .text {
+    display: none;
+  }
 }
 </style>
