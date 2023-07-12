@@ -34,6 +34,10 @@ button {
   cursor: pointer;
 }
 
+ul {
+  list-style: none;
+}
+
 .container {
   display: flex;
   min-height: 100vh;

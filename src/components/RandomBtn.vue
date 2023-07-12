@@ -1,5 +1,5 @@
 <template>
-  <router-link @click="updateRandomQuote" to="/" class="button">
+  <router-link @click="updateRandomQuote" to="/random" class="button">
     <span class="text">random</span>
     <img src="/assets/svg/random-icon.svg" alt="Random icon"
   /></router-link>
