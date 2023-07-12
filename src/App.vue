@@ -28,6 +28,12 @@
   font-size: 16px;
 }
 
+button {
+  background-color: transparent;
+  border: 0;
+  cursor: pointer;
+}
+
 .container {
   display: flex;
   min-height: 100vh;

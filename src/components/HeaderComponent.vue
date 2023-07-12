@@ -1,15 +1,20 @@
 <template>
   <header>
+    <div class="btn-back">
+      <BackRouter />
+    </div>
     <RandomBtn />
   </header>
 </template>
 
 <script>
 import RandomBtn from "@/components/RandomBtn.vue";
+import BackRouter from "@/components/BackRouter.vue";
 
 export default {
   name: "HeaderComponent",
   components: {
+    BackRouter,
     RandomBtn,
   },
 };
@@ -17,13 +22,20 @@ export default {
 
 <style scoped>
 header {
-  margin-left: auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   padding: 24px 2% 60px 2%;
 }
 
 @media (max-width: 768px) {
   header {
-    margin: 0 auto;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .btn-back {
+    display: none;
   }
 }
 </style>
