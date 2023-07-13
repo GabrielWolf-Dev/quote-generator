@@ -3,6 +3,7 @@ import { createRouter, createWebHistory } from "vue-router";
 import HomeView from "@/views/HomeView.vue";
 import RandomView from "@/views/RandomView.vue";
 import AuthorQuotesView from "@/views/AuthorQuotesView.vue";
+import NotFoundView from "@/views/NotFoundView.vue";
 const SearchView = () => import("@/views/SearchView.vue");
 
 const routes = [
@@ -17,7 +18,7 @@ const routes = [
     component: RandomView,
   },
   {
-    path: "/:author",
+    path: "/author/:author",
     name: "author",
     component: AuthorQuotesView,
   },
@@ -25,6 +26,10 @@ const routes = [
     path: "/search",
     name: "search",
     component: SearchView,
+  },
+  {
+    path: "/:pathMatch(.*)*",
+    component: NotFoundView,
   },
 ];
 

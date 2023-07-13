@@ -3,7 +3,7 @@
     <HeaderComponent />
     <WrapperComponent>
       <template v-slot:default="{ authorURL }">
-        <router-link :to="authorURL">
+        <router-link :to="`/author/${authorURL}`">
           <aside class="quote-desc">
             <h2 class="quote-author">{{ quotes.data[0].quoteAuthor }}</h2>
             <span class="quote-genre">{{ quotes.data[0].quoteGenre }}</span>

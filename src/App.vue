@@ -42,6 +42,11 @@ fieldset {
   border: 0;
 }
 
+abbr,
+a {
+  text-decoration: none;
+}
+
 .container {
   display: flex;
   min-height: 100vh;
