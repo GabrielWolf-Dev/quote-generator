@@ -1,8 +1,10 @@
 <template>
   <div class="container-search">
+    <HeaderComponent />
+
     <h1 class="title">Search for specific quotes</h1>
     <main v-if="genre !== null && authors !== null">
-      <form class="form">
+      <form class="form" @submit.prevent="setSearchQuotes">
         <fieldset class="select-group">
           <select name="genres" v-model="genreSelected">
             <option disabled selected>Choose a genre</option>
@@ -41,6 +43,14 @@
           </li>
         </ul>
       </div>
+
+      <hr class="line" />
+
+      <PhraseComponent
+        v-if="quotes !== null && !isLoading"
+        :phrases="quotes.data"
+      />
+      <LoadingQuotes v-else />
     </main>
     <div class="container-loading" v-else>
       <LoadingQuotes />
@@ -53,6 +63,8 @@
 <script>
 import { mapState, mapActions } from "vuex";
 
+import HeaderComponent from "@/components/HeaderComponent.vue";
+import PhraseComponent from "@/components/PhraseComponent.vue";
 import FooterComponent from "@/components/FooterComponent.vue";
 
 export default {
@@ -64,7 +76,7 @@ export default {
     };
   },
   computed: {
-    ...mapState(["genres", "authors"]),
+    ...mapState(["genres", "authors", "quotes", "isLoading"]),
     isGenreSelected() {
       return (
         this.genreSelected !== null && this.genreSelected !== "Choose a genre"
@@ -78,12 +90,29 @@ export default {
     },
   },
   methods: {
-    ...mapActions(["setGenres", "setAuthors"]),
+    ...mapActions(["setGenres", "setAuthors", "setQuotes"]),
+    setSearchQuotes() {
+      const authorReAPI = this.authorSelected.replace(" ", "%20");
+
+      if (this.isAuthorSelected && !this.isGenreSelected) {
+        this.setQuotes(`?author=${authorReAPI}`);
+      } else if (this.isGenreSelected && !this.isAuthorSelected) {
+        this.setQuotes(`?genres=${this.genreSelected}`);
+      } else if (this.isAuthorSelected && this.isGenreSelected) {
+        this.setQuotes(`?author=${authorReAPI}&genres=${this.genreSelected}`);
+      }
+    },
   },
   components: {
+    HeaderComponent,
+    PhraseComponent,
     FooterComponent,
   },
   created() {
+    document.title = "Quote Generator | Search Quotes";
+    this.$store.commit("SET_QUOTES", null);
+    this.setQuotes("/random");
+
     this.setGenres();
     this.setAuthors();
   },
@@ -114,7 +143,6 @@ export default {
 
 main {
   max-width: 1280px;
-  height: 100vh;
   margin: 0 auto;
   padding: 24px 2%;
 }
@@ -137,6 +165,7 @@ select {
   align-items: center;
   gap: 24px;
   flex-direction: column;
+  margin-bottom: 40px;
 }
 
 .select-group {
@@ -154,7 +183,7 @@ select {
 
 .active-select {
   text-align: center;
-  margin: 24px auto;
+  margin: 0 auto;
 }
 
 .active-select-title {
@@ -191,5 +220,25 @@ select {
 
 .active-select-text::first-letter {
   text-transform: uppercase;
+}
+
+.line {
+  width: 60%;
+  margin: 80px auto;
+  border: 1px solid var(--color-yellow);
+}
+
+@media (max-width: 768px) {
+  select {
+    width: 100%;
+    max-width: 300px;
+    height: 42px;
+    padding: 0 16px;
+  }
+
+  .select-group {
+    flex-direction: column;
+    gap: 24px;
+  }
 }
 </style>

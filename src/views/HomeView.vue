@@ -48,6 +48,9 @@ export default {
         "Have fun with the quote generator and find your favorite quotes!",
     };
   },
+  created() {
+    document.title = "Quote Generator | Home";
+  },
 };
 </script>
 

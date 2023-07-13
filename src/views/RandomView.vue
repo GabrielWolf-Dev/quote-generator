@@ -39,7 +39,7 @@ export default {
     ...mapState(["quotes", "isLoading"]),
   },
   created() {
-    document.title = "Quote Generator | Home";
+    document.title = "Quote Generator | Random Quotes";
 
     this.$store.dispatch("setQuotes", "/random");
   },
