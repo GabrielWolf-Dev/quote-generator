@@ -53,7 +53,7 @@ export default {
 
 .search-icon {
   position: relative;
-  top: 3px;
+  top: 0;
 }
 
 .home-link {

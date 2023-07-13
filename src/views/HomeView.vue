@@ -21,7 +21,10 @@
           ></router-link>
           <router-link class="link" to="/search">
             <abbr title="Search Quotes Page"
-              ><img src="/assets/svg/search.svg" alt="Search Icon"
+              ><img
+                style="position: relative; top: 2px"
+                src="/assets/svg/search.svg"
+                alt="Search Icon"
             /></abbr>
           </router-link>
         </nav>
