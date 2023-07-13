@@ -3,7 +3,7 @@ import { createRouter, createWebHistory } from "vue-router";
 import HomeView from "@/views/HomeView.vue";
 import RandomView from "@/views/RandomView.vue";
 import AuthorQuotesView from "@/views/AuthorQuotesView.vue";
-import SearchView from "@/views/SearchView.vue";
+const SearchView = () => import("@/views/SearchView.vue");
 
 const routes = [
   {

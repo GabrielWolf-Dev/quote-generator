@@ -38,6 +38,10 @@ ul {
   list-style: none;
 }
 
+fieldset {
+  border: 0;
+}
+
 .container {
   display: flex;
   min-height: 100vh;

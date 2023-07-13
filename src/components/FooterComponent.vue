@@ -37,8 +37,8 @@ export default {
 
 @media (max-width: 768px) {
   .footer {
-    position: relative;
-    top: 0;
+    position: initial;
+    top: initial;
     padding: 40px 2% 24px 2%;
     margin-bottom: 80px;
   }
