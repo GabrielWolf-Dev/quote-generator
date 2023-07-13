@@ -16,11 +16,14 @@
 
         <nav class="list-links">
           <router-link class="link" to="/random">
-            <img src="/assets/svg/random-icon.svg" alt="Random Icon"
-          /></router-link>
+            <abbr title="Random Quote Page"
+              ><img src="/assets/svg/random-icon.svg" alt="Random Icon" /></abbr
+          ></router-link>
           <router-link class="link" to="/search">
-            <img src="/assets/svg/search.svg" alt="Search Icon"
-          /></router-link>
+            <abbr title="Search Quotes Page"
+              ><img src="/assets/svg/search.svg" alt="Search Icon"
+            /></abbr>
+          </router-link>
         </nav>
       </div>
     </section>

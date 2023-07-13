@@ -1,6 +1,8 @@
 <template>
   <button class="button" @click="backRouter">
-    <img src="/assets/svg/arrow-back.svg" alt="Arrow back icon" />
+    <abbr title="Back to Previous Page">
+      <img src="/assets/svg/arrow-back.svg" alt="Arrow back icon"
+    /></abbr>
   </button>
 </template>
 

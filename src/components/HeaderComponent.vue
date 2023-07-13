@@ -3,13 +3,20 @@
     <BackRouter />
 
     <router-link to="/" class="home-link">
-      <img src="/assets/svg/home.svg" alt="Home icon"
-    /></router-link>
+      <abbr title="Home Page"
+        ><img src="/assets/svg/home.svg" alt="Home icon"
+      /></abbr>
+    </router-link>
 
     <nav class="nav">
       <router-link to="/search">
-        <img class="search-icon" src="/assets/svg/search.svg" alt="Search icon"
-      /></router-link>
+        <abbr title="Search Quotes Page">
+          <img
+            class="search-icon"
+            src="/assets/svg/search.svg"
+            alt="Search icon"
+        /></abbr>
+      </router-link>
 
       <RandomBtn />
     </nav>

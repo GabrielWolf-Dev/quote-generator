@@ -1,8 +1,10 @@
 <template>
   <router-link @click="updateRandomQuote" to="/random" class="button">
     <span class="text">random</span>
-    <img src="/assets/svg/random-icon.svg" alt="Random icon"
-  /></router-link>
+    <abbr title="Random Quotes Page">
+      <img src="/assets/svg/random-icon.svg" alt="Random icon"
+    /></abbr>
+  </router-link>
 </template>
 
 <script>

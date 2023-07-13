@@ -127,6 +127,7 @@ select {
   background-color: var(--color-white);
   color: var(--color-gray-02);
   border: 1px solid var(--color-gray-01);
+  cursor: pointer;
 }
 
 .form {
