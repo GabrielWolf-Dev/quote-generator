@@ -240,5 +240,9 @@ select {
     flex-direction: column;
     gap: 24px;
   }
+
+  .active-select-list {
+    flex-direction: column;
+  }
 }
 </style>
