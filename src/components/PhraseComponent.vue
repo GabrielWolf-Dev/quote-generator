@@ -18,10 +18,7 @@ export default {
       type: Object,
       required: false,
       default: () => {
-        return {
-          fontSize: "var(--font-36)",
-          marginBottom: "160px",
-        };
+        return {};
       },
     },
   },
@@ -36,10 +33,6 @@ export default {
   padding-left: 100px;
   border-left: 8px solid var(--color-yellow);
   margin-bottom: 160px;
-}
-
-.phrase:last-child {
-  margin-bottom: 0;
 }
 
 @media (max-width: 768px) {
