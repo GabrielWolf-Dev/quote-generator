@@ -30,6 +30,11 @@ export default {
   text-decoration: none;
 }
 
+.text {
+  position: relative;
+  bottom: 3px;
+}
+
 @media (max-width: 768px) {
   .button {
     gap: 0;

@@ -17,7 +17,10 @@
         <nav class="list-links">
           <router-link class="link" to="/random">
             <abbr title="Random Quote Page"
-              ><img src="/assets/svg/random-icon.svg" alt="Random Icon" /></abbr
+              ><img
+                style="position: relative; top: 2px"
+                src="/assets/svg/random-icon.svg"
+                alt="Random Icon" /></abbr
           ></router-link>
           <router-link class="link" to="/search">
             <abbr title="Search Quotes Page"
