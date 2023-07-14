@@ -2,67 +2,77 @@
   <div class="container-search">
     <HeaderComponent />
 
-    <h1 class="title">Search for specific quotes</h1>
-    <main v-if="genre !== null && authors !== null">
-      <form class="form" @submit.prevent="setSearchQuotes">
-        <fieldset class="select-group">
-          <select name="genres" v-model="genreSelected">
-            <option disabled selected>Choose a genre</option>
-            <option
-              v-for="(genre, index) in genres"
-              :key="genre + index"
-              :value="genre"
-            >
-              {{ genre }}
-            </option>
-          </select>
+    <TransitionGroup :duration="500" appear mode="out-in">
+      <main v-if="genre !== null && authors !== null">
+        <h1 class="title">Search for specific quotes</h1>
 
-          <select name="authors" v-model="authorSelected">
-            <option disabled selected>Choose a author</option>
-            <option
-              v-for="(author, index) in authors"
-              :key="author + index"
-              :value="author"
-            >
-              {{ author }}
-            </option>
-          </select>
-        </fieldset>
-        <button class="button-submit" type="submit">Search Quotes</button>
-      </form>
+        <form class="form" @submit.prevent="setSearchQuotes">
+          <fieldset class="select-group">
+            <select name="genres" v-model="genreSelected">
+              <option disabled selected>Choose a genre</option>
+              <option
+                v-for="(genre, index) in genres"
+                :key="genre + index"
+                :value="genre"
+              >
+                {{ genre }}
+              </option>
+            </select>
 
-      <div class="active-select" v-if="isGenreSelected || isAuthorSelected">
-        <h2 class="active-select-title">Selected Fields:</h2>
+            <select name="authors" v-model="authorSelected">
+              <option disabled selected>Choose a author</option>
+              <option
+                v-for="(author, index) in authors"
+                :key="author + index"
+                :value="author"
+              >
+                {{ author }}
+              </option>
+            </select>
+          </fieldset>
+          <button class="button-submit" type="submit">Search Quotes</button>
+        </form>
 
-        <ul class="active-select-list">
-          <li class="active-select-item" v-if="isAuthorSelected">
-            Author: <span class="active-select-text">{{ authorSelected }}</span>
-          </li>
-          <li class="active-select-item" v-if="isGenreSelected">
-            Genre: <span class="active-select-text">{{ genreSelected }}</span>
-          </li>
-        </ul>
+        <Transition name="fade-fields" :duration="500" appear mode="out-in">
+          <div class="active-select" v-if="isGenreSelected || isAuthorSelected">
+            <h2 class="active-select-title">Selected Fields:</h2>
+
+            <ul class="active-select-list">
+              <li class="active-select-item" v-if="isAuthorSelected">
+                Author:
+                <span class="active-select-text">{{ authorSelected }}</span>
+              </li>
+              <li class="active-select-item" v-if="isGenreSelected">
+                Genre:
+                <span class="active-select-text">{{ genreSelected }}</span>
+              </li>
+            </ul>
+          </div>
+        </Transition>
+
+        <hr class="line" />
+
+        <TransitionGroup :duration="200" appear mode="out-in">
+          <div class="container-phrase" v-if="quotes !== null && !isLoading">
+            <PhraseComponent :customStyle="phraseStyle" :phrases="quotes.data">
+              <template v-slot:default="{ authorURL, quoteAuthor, quoteGenre }">
+                <AuthorPhrase
+                  :authorURL="authorURL"
+                  :quoteAuthor="quoteAuthor"
+                  :quoteGenre="quoteGenre"
+                  :customStyle="authorStyle"
+                />
+              </template>
+            </PhraseComponent>
+          </div>
+          <LoadingQuotes v-else />
+        </TransitionGroup>
+      </main>
+
+      <div class="container-loading" v-else>
+        <LoadingQuotes />
       </div>
-
-      <hr class="line" />
-
-      <div class="container-phrase" v-if="quotes !== null && !isLoading">
-        <PhraseComponent :customStyle="phraseStyle" :phrases="quotes.data">
-          <template v-slot:default="{ authorURL, quoteAuthor, quoteGenre }">
-            <AuthorPhrase
-              :authorURL="authorURL"
-              :quoteAuthor="quoteAuthor"
-              :quoteGenre="quoteGenre"
-              :customStyle="authorStyle"
-            />
-          </template>
-        </PhraseComponent>
-      </div>
-      <LoadingQuotes v-else />
-    </main>
-    <div class="container-loading" v-else>
-      <LoadingQuotes />
-    </div>
+    </TransitionGroup>
 
     <FooterComponent />
   </div>
@@ -269,5 +279,17 @@ select {
   .active-select-list {
     flex-direction: column;
   }
+}
+
+/* -- Transitions -- */
+.fade-fields-enter-active,
+.fade-fields-leave-active {
+  transition: all 0.5s;
+}
+
+.fade-fields-enter-from,
+.fade-fields-leave-to {
+  opacity: 0;
+  transform: translateY(-20px);
 }
 </style>

@@ -1,11 +1,15 @@
 <template>
   <main class="container-phrase" v-if="quotes !== null && !isLoading">
     <div>
-      <slot name="title"></slot>
+      <TransitionGroup :duration="500" appear mode="out-in">
+        <div v-if="quotes !== null && !isLoading">
+          <slot name="title"></slot>
 
-      <PhraseComponent :phrases="quotes.data" />
+          <PhraseComponent :phrases="quotes.data" />
 
-      <slot :authorURL="authorURL"></slot>
+          <slot :authorURL="authorURL"></slot>
+        </div>
+      </TransitionGroup>
     </div>
   </main>
 

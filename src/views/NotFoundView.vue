@@ -1,14 +1,16 @@
 <template>
   <div>
     <HeaderComponent />
-    <section class="container-page404">
-      <h1 class="title-page404">Page Not Found</h1>
-      <abbr title="Back to home page">
-        <router-link to="/" class="btn-link-page404"
-          >Back to home page</router-link
-        >
-      </abbr>
-    </section>
+    <Transition name="fade-page404" :duration="500" appear mode="out-in">
+      <section class="container-page404">
+        <h1 class="title-page404">Page Not Found</h1>
+        <abbr title="Back to home page">
+          <router-link to="/" class="btn-link-page404"
+            >Back to home page</router-link
+          >
+        </abbr>
+      </section>
+    </Transition>
     <FooterComponent />
   </div>
 </template>
@@ -67,5 +69,17 @@ export default {
   .btn-link-page404 {
     padding: 16px;
   }
+}
+
+/* -- Transitions -- */
+.fade-page404-enter-active,
+.fade-page404-leave-active {
+  transition: all 0.5s;
+}
+
+.fade-page404-enter-from,
+.fade-page404-leave-to {
+  opacity: 0;
+  transform: scale(0.6);
 }
 </style>

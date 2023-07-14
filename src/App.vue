@@ -72,4 +72,15 @@ a {
     padding: 40px 2%;
   }
 }
+
+.v-enter-active,
+.v-leave-active {
+  transition: all 0.5s;
+}
+
+.v-enter-from,
+.v-leave-to {
+  opacity: 0;
+  transform: translateX(-20px);
+}
 </style>

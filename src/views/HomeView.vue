@@ -1,44 +1,52 @@
 <template>
   <div class="home">
-    <section class="banner">
-      <img class="banner-img" src="/assets/img/banner.jpg" alt="Banner Home" />
+    <Transition :duration="500" appear mode="out-in">
+      <section class="banner">
+        <img
+          class="banner-img"
+          src="/assets/img/banner.jpg"
+          alt="Banner Home"
+        />
 
-      <div class="banner-description">
-        <h2 class="banner-title">
-          {{ title }}
-        </h2>
-        <p class="banner-paragraph">
-          {{ description }}
-        </p>
-        <p class="banner-paragraph">
-          {{ complement }}
-        </p>
+        <div class="banner-description">
+          <h2 class="banner-title">
+            {{ title }}
+          </h2>
+          <p class="banner-paragraph">
+            {{ description }}
+          </p>
+          <p class="banner-paragraph">
+            {{ complement }}
+          </p>
 
-        <nav class="list-links">
-          <router-link class="link" to="/random">
-            <abbr title="Random Quote Page"
-              ><img
-                style="position: relative; top: 2px"
-                src="/assets/svg/random-icon.svg"
-                alt="Random Icon" /></abbr
-          ></router-link>
-          <router-link class="link" to="/search">
-            <abbr title="Search Quotes Page"
-              ><img
-                style="position: relative; top: 2px"
-                src="/assets/svg/search.svg"
-                alt="Search Icon"
-            /></abbr>
-          </router-link>
-        </nav>
-      </div>
-    </section>
+          <nav class="list-links">
+            <router-link class="link" to="/random">
+              <abbr title="Random Quote Page"
+                ><img
+                  style="position: relative; top: 2px"
+                  src="/assets/svg/random-icon.svg"
+                  alt="Random Icon" /></abbr
+            ></router-link>
+            <router-link class="link" to="/search">
+              <abbr title="Search Quotes Page"
+                ><img
+                  style="position: relative; top: 2px"
+                  src="/assets/svg/search.svg"
+                  alt="Search Icon"
+              /></abbr>
+            </router-link>
+          </nav>
+        </div>
+      </section>
+    </Transition>
 
-    <img
-      class="blob-bg"
-      src="/assets/svg/blob.svg"
-      alt="Blob illustration background"
-    />
+    <Transition name="fade-bg" :duration="500" appear>
+      <img
+        class="blob-bg"
+        src="/assets/svg/blob.svg"
+        alt="Blob illustration background"
+      />
+    </Transition>
   </div>
 </template>
 
@@ -174,5 +182,16 @@ export default {
     align-items: center;
     margin-top: 16px;
   }
+}
+
+.fade-bg-enter-active,
+.fade-bg-leave-active {
+  transition: all 0.5s;
+}
+
+.fade-bg-enter-from,
+.fade-bg-leave-to {
+  opacity: 0;
+  transform: translateX(-20px);
 }
 </style>
