@@ -47,7 +47,16 @@
       <hr class="line" />
 
       <div class="container-phrase" v-if="quotes !== null && !isLoading">
-        <PhraseComponent :customStyle="phraseStyle" :phrases="quotes.data" />
+        <PhraseComponent :customStyle="phraseStyle" :phrases="quotes.data">
+          <template v-slot:default="{ authorURL, quoteAuthor, quoteGenre }">
+            <AuthorPhrase
+              :authorURL="authorURL"
+              :quoteAuthor="quoteAuthor"
+              :quoteGenre="quoteGenre"
+              :customStyle="authorStyle"
+            />
+          </template>
+        </PhraseComponent>
       </div>
       <LoadingQuotes v-else />
     </main>
@@ -64,6 +73,7 @@ import { mapState, mapActions } from "vuex";
 
 import HeaderComponent from "@/components/HeaderComponent.vue";
 import PhraseComponent from "@/components/PhraseComponent.vue";
+import AuthorPhrase from "@/components/AuthorPhrase.vue";
 import FooterComponent from "@/components/FooterComponent.vue";
 
 export default {
@@ -72,7 +82,15 @@ export default {
     return {
       genreSelected: "Choose a genre",
       authorSelected: "Choose a author",
-      phraseStyle: "font-size: var(--font-24); padding-left: 60px;",
+      phraseStyle: {
+        fontSize: "var(--font-24)",
+        marginBottom: "0",
+      },
+      authorStyle: {
+        maxWidth: "500px",
+        padding: "30px",
+        margin: "60px 0",
+      },
     };
   },
   computed: {
@@ -106,6 +124,7 @@ export default {
   components: {
     HeaderComponent,
     PhraseComponent,
+    AuthorPhrase,
     FooterComponent,
   },
   created() {

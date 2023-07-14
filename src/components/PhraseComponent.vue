@@ -1,18 +1,30 @@
 <template>
-  <p
-    class="phrase"
-    v-for="phrase in phrases"
-    :key="phrase._id"
-    :style="customStyle"
-  >
-    “{{ phrase.quoteText }}”
-  </p>
+  <div v-for="phrase in phrases" :key="phrase._id">
+    <p class="phrase" :style="customStyle">“{{ phrase.quoteText }}”</p>
+    <slot
+      :authorURL="phrase.quoteAuthor.replace(' ', '%20')"
+      :quoteAuthor="phrase.quoteAuthor"
+      :quoteGenre="phrase.quoteGenre"
+    ></slot>
+  </div>
 </template>
 
 <script>
 export default {
   name: "PhraseComponent",
-  props: ["phrases", "customStyle"],
+  props: {
+    phrases: Array,
+    customStyle: {
+      type: Object,
+      required: false,
+      default: () => {
+        return {
+          fontSize: "var(--font-36)",
+          marginBottom: "160px",
+        };
+      },
+    },
+  },
 };
 </script>
 

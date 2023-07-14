@@ -3,7 +3,7 @@
     <div>
       <slot name="title"></slot>
 
-      <PhraseComponent :phrases="this.quotes.data" />
+      <PhraseComponent :phrases="quotes.data" />
 
       <slot :authorURL="authorURL"></slot>
     </div>
