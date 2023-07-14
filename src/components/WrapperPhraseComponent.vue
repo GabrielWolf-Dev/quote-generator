@@ -18,7 +18,7 @@ import { mapState } from "vuex";
 import PhraseComponent from "@/components/PhraseComponent.vue";
 
 export default {
-  name: "WrapperComponent",
+  name: "WrapperPhraseComponent",
   components: {
     PhraseComponent,
   },

@@ -46,10 +46,9 @@
 
       <hr class="line" />
 
-      <PhraseComponent
-        v-if="quotes !== null && !isLoading"
-        :phrases="quotes.data"
-      />
+      <div class="container-phrase" v-if="quotes !== null && !isLoading">
+        <PhraseComponent :customStyle="phraseStyle" :phrases="quotes.data" />
+      </div>
       <LoadingQuotes v-else />
     </main>
     <div class="container-loading" v-else>
@@ -73,6 +72,7 @@ export default {
     return {
       genreSelected: "Choose a genre",
       authorSelected: "Choose a author",
+      phraseStyle: "font-size: var(--font-24); padding-left: 60px;",
     };
   },
   computed: {
@@ -226,6 +226,12 @@ select {
   width: 60%;
   margin: 80px auto;
   border: 1px solid var(--color-yellow);
+}
+
+.container-phrase {
+  max-width: 1000px;
+  padding: 0 2%;
+  margin: 0 auto;
 }
 
 @media (max-width: 768px) {

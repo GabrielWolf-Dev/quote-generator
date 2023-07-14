@@ -1,7 +1,7 @@
 <template>
   <div class="container">
     <HeaderComponent />
-    <WrapperComponent>
+    <WrapperPhraseComponent>
       <template v-slot:default="{ authorURL }">
         <router-link :to="`/author/${authorURL}`">
           <aside class="quote-desc">
@@ -16,7 +16,7 @@
           </aside>
         </router-link>
       </template>
-    </WrapperComponent>
+    </WrapperPhraseComponent>
     <FooterComponent />
   </div>
 </template>
@@ -25,14 +25,14 @@
 import { mapState } from "vuex";
 
 import HeaderComponent from "@/components/HeaderComponent.vue";
-import WrapperComponent from "@/components/WrapperComponent.vue";
+import WrapperPhraseComponent from "@/components/WrapperPhraseComponent.vue";
 import FooterComponent from "@/components/FooterComponent.vue";
 
 export default {
   name: "HomeView",
   components: {
     HeaderComponent,
-    WrapperComponent,
+    WrapperPhraseComponent,
     FooterComponent,
   },
   computed: {

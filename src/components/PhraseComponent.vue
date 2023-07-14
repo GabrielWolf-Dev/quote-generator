@@ -1,5 +1,10 @@
 <template>
-  <p class="phrase" v-for="phrase in phrases" :key="phrase._id">
+  <p
+    class="phrase"
+    v-for="phrase in phrases"
+    :key="phrase._id"
+    :style="customStyle"
+  >
     “{{ phrase.quoteText }}”
   </p>
 </template>
@@ -7,7 +12,7 @@
 <script>
 export default {
   name: "PhraseComponent",
-  props: ["phrases"],
+  props: ["phrases", "customStyle"],
 };
 </script>
 

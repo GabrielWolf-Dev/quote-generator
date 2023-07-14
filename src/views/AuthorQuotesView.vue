@@ -1,11 +1,11 @@
 <template>
   <div class="container">
     <HeaderComponent />
-    <WrapperComponent>
+    <WrapperPhraseComponent>
       <template v-slot:title>
         <h1 class="title">{{ author }}</h1>
       </template>
-    </WrapperComponent>
+    </WrapperPhraseComponent>
     <FooterComponent />
   </div>
 </template>
@@ -14,7 +14,7 @@
 import { mapState } from "vuex";
 
 import HeaderComponent from "@/components/HeaderComponent.vue";
-import WrapperComponent from "@/components/WrapperComponent.vue";
+import WrapperPhraseComponent from "@/components/WrapperPhraseComponent.vue";
 import FooterComponent from "@/components/FooterComponent.vue";
 
 export default {
@@ -29,7 +29,7 @@ export default {
   },
   components: {
     HeaderComponent,
-    WrapperComponent,
+    WrapperPhraseComponent,
     FooterComponent,
   },
   created() {
