@@ -1,6 +1,4 @@
-<!-- Please update value in the {}  -->
-
-<h1 align="center">{Your project name}</h1>
+<h1 align="center">{Quote Generator}</h1>
 
 <div align="center">
    Solution for a challenge from  <a href="http://devchallenges.io" target="_blank">Devchallenges.io</a>.
@@ -8,11 +6,7 @@
 
 <div align="center">
   <h3>
-    <a href="https://{your-demo-link.your-domain}">
-      Demo
-    </a>
-    <span> | </span>
-    <a href="https://{your-url-to-the-solution}">
+    <a href="https://quote-generator-gwdev.vercel.app/">
       Solution
     </a>
     <span> | </span>
@@ -21,8 +15,6 @@
     </a>
   </h3>
 </div>
-
-<!-- TABLE OF CONTENTS -->
 
 ## Table of Contents
 
@@ -33,61 +25,51 @@
 - [Contact](#contact)
 - [Acknowledgements](#acknowledgements)
 
-<!-- OVERVIEW -->
-
 ## Overview
 
-![screenshot](https://user-images.githubusercontent.com/16707738/92399059-5716eb00-f132-11ea-8b14-bcacdc8ec97b.png)
+![screenshot](https://quote-generator-gwdev.vercel.app/assets/img/screenshot.png)
 
-Introduce your projects by taking a screenshot or a gif. Try to tell visitors a story about your project by answering:
-
-- Where can I see your demo?
-- What was your experience?
-- What have you learned/improved?
-- Your wisdom? :)
+One of the first projects where I'm applying my knowledge of Vue.js, which is the current framework in my learning to find a job, in it I applied the most recent version (Vue 3) with JavaScript Vanilla, without TypeScript that will be next topic that I will learn after the end of this project.
+<br />
+Initially I thought that I would not be able to apply much knowledge about Vue.js, but by studying the API documentation and the emergence of new features beyond the standard required by figma, I was able to apply more advanced knowledge that I had a lot of benefit from and I could better understand the tools that Vue makes available to the developer. Some things I had a lot of difficulty solving the problem, it was challenging but very rewarding to develop this project. It will even serve very well to consult something that I may forget in the future in other projects.
+<br />
+In addition to the basic concepts of Vue, due to having studied Vue 2, I had to dig deeper into some things in the documentation that changed between version 2 and 3, this being the main challenge that I liked to gain experience to be able to discern some differences between versions.
 
 ### Built With
 
-<!-- This section should list any major frameworks that you built your project using. Here are a few examples.-->
-
-- [React](https://reactjs.org/)
+- [HTML](https://developer.mozilla.org/pt-BR/docs/Web/HTML)
+- [CSS3](https://developer.mozilla.org/pt-BR/docs/Learn/CSS)
+- [JavaScript](https://developer.mozilla.org/pt-BR/docs/Learn/JavaScript)
 - [Vue.js](https://vuejs.org/)
-- [Tailwind](https://tailwindcss.com/)
 
 ## Features
 
-<!-- List the features of your application or follow the template. Don't share the figma file here :) -->
-
 This application/site was created as a submission to a [DevChallenges](https://devchallenges.io/challenges) challenge. The [challenge](https://devchallenges.io/challenges/8Y3J4ucAMQpSnYTwwWW8) was to build an application to complete the given user stories.
 
-
 ## How To Use
-
-<!-- For example: -->
 
 To clone and run this application, you'll need [Git](https://git-scm.com) and [Node.js](https://nodejs.org/en/download/) (which comes with [npm](http://npmjs.com)) installed on your computer. From your command line:
 
 ```bash
 # Clone this repository
-$ git clone https://github.com/your-user-name/your-project-name
+$ git clone https://github.com/GabrielWolf-Dev/quote-generator.git
 
 # Install dependencies
 $ npm install
 
 # Run the app
-$ npm start
+$ npm run serve
 ```
 
 ## Acknowledgements
 
-<!-- This section should list any articles or add-ons/plugins that helps you to complete the project. This is optional but it will help you in the future. For example: -->
-
 - [Steps to replicate a design with only HTML and CSS](https://devchallenges-blogs.web.app/how-to-replicate-design/)
-- [Node.js](https://nodejs.org/)
-- [Marked - a markdown parser](https://github.com/chjj/marked)
+- [Complete Vue.js Course - Origamid](https://www.origamid.com/curso/vue-js-completo)
+- [Vue.js Documentation](https://vuejs.org/)
+- [Mozilla documentation for questions about HTML, CSS, and JavaScript](https://developer.mozilla.org/pt-BR/)
+- [Material UI Icons](https://fonts.google.com/icons)
 
 ## Contact
 
-- Website [your-website.com](https://{your-web-site-link})
-- GitHub [@your-username](https://{github.com/your-usermame})
-- Twitter [@your-twitter](https://{twitter.com/your-username})
+- Website [gwdev-portfolio](https://gwdev-portfolio.vercel.app/)
+- GitHub [@GabrielWolf-Dev](https://github.com/GabrielWolf-Dev)
