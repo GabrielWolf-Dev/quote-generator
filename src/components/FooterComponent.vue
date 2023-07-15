@@ -22,12 +22,10 @@ export default {
 
 <style scoped>
 .footer {
-  position: relative;
-  top: 40px;
   text-align: center;
   color: var(--color-gray-03);
   font-size: var(--font-14);
-  padding: 60px 2% 24px 2%;
+  padding: 24px 2% 24px 2%;
 }
 
 .link-dev {
@@ -37,10 +35,7 @@ export default {
 
 @media (max-width: 768px) {
   .footer {
-    position: initial;
-    top: initial;
-    padding: 40px 2% 24px 2%;
-    margin-bottom: 80px;
+    padding: 24px 2% 24px 2%;
   }
 }
 </style>
